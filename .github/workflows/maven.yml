@@ -27,4 +27,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: BankSystem-Artifact
-          path: target/*.jar
+          path: LeCongVinh_25023546_Week9/Bai03/target/*.jar
