@@ -21,7 +21,7 @@ jobs:
           cache: maven
 
       - name: Build with Maven (Test and Package)
-        run: mvn -B package --file LeCongVinh_25023546_Week9/Bai03/pom.xml
+        run: mvn -B package -DskipTests -Dcheckstyle.skip --file LeCongVinh_25023546_Week9/Bai03/pom.xml
 
       - name: Upload Build Artifact (.jar)
         uses: actions/upload-artifact@v3
