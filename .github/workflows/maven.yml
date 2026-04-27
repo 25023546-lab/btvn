@@ -21,10 +21,10 @@ jobs:
           cache: maven
 
       - name: Build with Maven (Test and Package)
-        run: mvn -B package -DskipTests -Dcheckstyle.skip --file LeCongVinh_25023546_Week9/Bai03/pom.xml
+        run: mvn clean package -DskipTests -Dcheckstyle.skip --file LeCongVinh_25023546_Week9/Bai03/pom.xml
 
       - name: Upload Build Artifact (.jar)
         uses: actions/upload-artifact@v3
         with:
           name: BankSystem-Artifact
-          path: LeCongVinh_25023546_Week9/Bai03/target/*.jar
+          path: LeCongVinh_25023546_Week9/Bai03/target/
