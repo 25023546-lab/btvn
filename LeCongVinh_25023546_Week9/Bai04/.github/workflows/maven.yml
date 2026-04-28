@@ -1,0 +1,27 @@
+name: OS Matrix Testing CI
+
+on:
+  push:
+    branches: [ "master", "main" ]
+
+jobs:
+  build:
+    # Cấu hình Matrix Strategy
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build and Test with Maven
+        # Lưu ý: Lần này KHÔNG CÓ -DskipTests để nó bắt lỗi!
+        run: mvn clean package --file LeCongVinh_25023546_Week9/Bai04/pom.xml
