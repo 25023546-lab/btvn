@@ -1,6 +1,10 @@
+
+
+import java.nio.file.Paths;
+
 public class PathHandler {
     public String getReportPath() {
-        // CỐ TÌNH LỖI: Sử dụng dấu gạch chéo cứng của Windows
-        return "reports\\report.txt";
+        // REFACTOR: Sử dụng Paths.get() để tự động dùng đúng dấu gạch chéo / hoặc \
+        return Paths.get("reports", "report.txt").toString();
     }
 }
