@@ -20,11 +20,12 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build with Maven (Test and Package)
-        run: mvn -B package --file pom.xml
+      - name: Build with Maven
+        # Dùng clean package để xóa rác cũ và đóng gói mới
+        run: mvn clean package --file LeCongVinh_25023546_Week9/Bai03/pom.xml
 
-      - name: Upload Build Artifact (.jar)
+      - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: BankSystem-Artifact
-          path: target/*.jar
+          name: My-BankSystem-Jar
+          path: LeCongVinh_25023546_Week9/Bai03/target/*.jar
